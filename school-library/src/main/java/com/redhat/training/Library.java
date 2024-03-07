@@ -20,15 +20,16 @@ public class Library {
         this.inventory = inventory;
     }
 
-    public Book checkOut(String studentId, String isbn) throws BookNotAvailableException {
-        if (!inventory.isBookAvailable(isbn)) {
+    public Book checkOut(String studentId, String isbn)
+        throws BookNotAvailableException {
+          if (!inventory.isBookAvailable(isbn)) {
             throw new BookNotAvailableException(isbn);
-        }
+          }
 
-        Book book = inventory.withdraw(isbn);
-        loans.markAsBorrowed(studentId, book);
+               Book book = inventory.withdraw(isbn);
+               loans.markAsBorrowed(studentId, book);
 
-        return book;
+            return book;
     }
 
     public double getAvailablityRate() {
